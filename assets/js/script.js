@@ -16,11 +16,14 @@ const wall = document.querySelector('.wall');
 //parte destra/bottom
 const newButtonsContainer = newElement(mainTag, 'div', 'buttons-container', '');
 const buttonsContainer = document.querySelector('.buttons-container');
-const newIncreaseButton = newElement(buttonsContainer, 'button', 'increase-btn', '+');
 const newDecreaseButton = newElement(buttonsContainer, 'button', 'decrease-btn', '-');
-const increaseBtn = document.querySelector('.increase-btn');
+const newResetButton = newElement(buttonsContainer, 'button', 'reset-btn', 'RESET')
+const newIncreaseButton = newElement(buttonsContainer, 'button', 'increase-btn', '+');
 const decreaseBtn = document.querySelector('.decrease-btn');
+const resetBtn = document.querySelector('.reset-btn')
+const increaseBtn = document.querySelector('.increase-btn');
 increaseBtn.setAttribute('class', 'buttons');
+resetBtn.setAttribute('class', 'buttons')
 decreaseBtn.setAttribute('class', 'buttons');
 
 //fa il render ad ogni aggiunta
@@ -29,8 +32,18 @@ function renderWall(arr) {
     arr.map((a) => {
         a = newElement(wall, 'div', 'newBrick', '');
     })
+    checkOverflow();
 }
 
+//DA SISTEMARE
+//controllo posizione cursore overflow
+function checkOverflow() {
+    if (arrayPos.length > 100) {
+        wall.scrollTop = wall.scrollHeight - wall.clientHeight;
+      } else if (arrayNeg.length > 100) {
+        wall.scrollTop = wall.scrollHeight - wall.clientHeight;
+}
+}
 //Click dei buttons
 increaseBtn.addEventListener('click', () => {
     counterNumber++;
@@ -46,6 +59,16 @@ decreaseBtn.addEventListener('click', () => {
     changeBrickColor();
 })
 
+resetBtn.addEventListener('click', ()=>{
+    if(counterNumber>0){
+        arrayPos = [];
+    } else{
+        arrayNeg = [];
+    }
+    counterNumber = 0;
+        counter.innerText = counterNumber;
+    renderWall();
+})
 //funzioni per aggiungere o togliere i brick dai rispettivi array
 function addOrRemovePos() {
     if (arrayNeg.length <= 0) {

@@ -69,6 +69,7 @@ main {
     transition: all 0.75s;
 
     overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
 /* stile barra overflow */
@@ -124,9 +125,9 @@ main {
     background-color: white;
     border: none;
     text-align: center;
-    font-size: 3em;
-    width: 30%;
-    height: 30%;
+    font-size: 2em;
+    width: 25%;
+    height: 25%;
     cursor: pointer;
     border-radius: 10px;
     transition: all 0.75s;
