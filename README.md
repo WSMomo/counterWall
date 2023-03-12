@@ -14,6 +14,11 @@ This project  is a simple counter that adds and substracts numbers and also rend
 
 When you run the code, you will see the counter and the wall with bricks. The counter value starts at 0 and can be incremented or decremented by clicking the '+' and '-' buttons respectively. When the counter value is positive, the bricks on the wall are red; when it is negative, they turn green.
 
+## Screenshots
+
+<img src="assets\img\readme\negNumbers.png">
+<img src="assets\img\readme\posNumbers.png">
+
 ## Technologies used
 
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
