@@ -125,7 +125,7 @@ main {
     background-color: white;
     border: none;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
     width: 25%;
     height: 25%;
     cursor: pointer;
@@ -134,7 +134,7 @@ main {
     user-select: none;
 }
 
-.buttons:hover {
+.hover {
     background-color: black;
     border: 1px solid white;
     color: white;

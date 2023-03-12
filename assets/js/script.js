@@ -26,6 +26,8 @@ increaseBtn.setAttribute('class', 'buttons');
 resetBtn.setAttribute('class', 'buttons')
 decreaseBtn.setAttribute('class', 'buttons');
 
+const buttons = document.querySelectorAll('.buttons');
+
 //fa il render ad ogni aggiunta
 function renderWall(arr) {
     wall.innerHTML = '';
@@ -50,6 +52,7 @@ increaseBtn.addEventListener('click', () => {
     counter.innerText = counterNumber;
     addOrRemovePos();
     changeBrickColor();
+    buttonsHover();
 })
 
 decreaseBtn.addEventListener('click', () => {
@@ -57,6 +60,7 @@ decreaseBtn.addEventListener('click', () => {
     counter.innerText = counterNumber;
     addOrRemoveNeg();
     changeBrickColor();
+    buttonsHover();
 })
 
 resetBtn.addEventListener('click', ()=>{
@@ -67,8 +71,38 @@ resetBtn.addEventListener('click', ()=>{
     }
     counterNumber = 0;
         counter.innerText = counterNumber;
-    renderWall();
+    wall.innerHTML = '';
+    buttonsHover();
+
 })
+
+
+//funzione per aggiungere l'hover e toglierla dopo il click (per evitare hover permanente su mobile)
+function buttonsHover(){
+    if('ontouchstart' in document.documentElement){
+        buttons.forEach((button)=>{
+            button.addEventListener('touchstart', () =>{
+                button.classList.add('hover');
+            }, {passive: true});
+            button.addEventListener('touchend', ()=>{
+                button.classList.remove('hover');
+        }, {passive: true});
+        button.addEventListener('click', ()=>{
+            button.classList.remove('hover');
+        }, {passive:true}); 
+        });
+    } else {
+        buttons.forEach((button)=>{
+            button.addEventListener('mouseenter', ()=>{
+                button.classList.add('hover');
+            });
+            button.addEventListener('mouseleave', ()=>{
+                button.classList.remove('hover');
+            });
+        });
+    }
+}
+
 //funzioni per aggiungere o togliere i brick dai rispettivi array
 function addOrRemovePos() {
     if (arrayNeg.length <= 0) {
