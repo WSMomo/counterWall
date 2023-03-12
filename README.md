@@ -24,5 +24,5 @@ When you run the code, you will see the counter and the wall with bricks. The co
 
 👤 **Marco Momo**
 
-* Website: [wsmomo.github.io/Portfolio-Marco-Momo] "Website"
+* [Website](wsmomo.github.io/Portfolio-Marco-Momo)
 * Github: [@wsmomo](https://github.com/wsmomo)
