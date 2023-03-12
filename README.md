@@ -12,6 +12,8 @@ When you run the code, you will see the counter and the wall with bricks. The co
 Clone the repository. Open the 'index.html'in your browser.
 ```
 
+
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
 ## Author
 
 👤 **Marco Momo**
