@@ -1,13 +1,17 @@
+//due array per assegnare i brick se positivi o se negativi e contatore
+let arrayPos = [];
+let arrayNeg = [];
+let counterNumber = 0;
+
+
 //costruzione DOM
 const mainTag = document.querySelector('main');
-let counterNumber = 0;
 // creazione elementi e assegnazione
 const newCounter = newElement(mainTag, 'div', 'counter', String(counterNumber));
 const counter = document.querySelector('.counter');
 //parte sinistra/top
 const newWall = newElement(mainTag, 'div', 'wall', '');
 const wall = document.querySelector('.wall');
-
 
 //parte destra/bottom
 const newButtonsContainer = newElement(mainTag, 'div', 'buttons-container', '');
@@ -19,9 +23,28 @@ const decreaseBtn = document.querySelector('.decrease-btn');
 increaseBtn.setAttribute('class', 'buttons');
 decreaseBtn.setAttribute('class', 'buttons');
 
-//due array per assegnare i brick se positivi o se negativi
-let arrayPos = [];
-let arrayNeg = [];
+//fa il render ad ogni aggiunta
+function renderWall(arr) {
+    wall.innerHTML = '';
+    arr.map((a) => {
+        a = newElement(wall, 'div', 'newBrick', '');
+    })
+}
+
+//Click dei buttons
+increaseBtn.addEventListener('click', () => {
+    counterNumber++;
+    counter.innerText = counterNumber;
+    addOrRemovePos();
+    changeBrickColor();
+})
+
+decreaseBtn.addEventListener('click', () => {
+    counterNumber--;
+    counter.innerText = counterNumber;
+    addOrRemoveNeg();
+    changeBrickColor();
+})
 
 //funzioni per aggiungere o togliere i brick dai rispettivi array
 function addOrRemovePos() {
@@ -49,33 +72,7 @@ function addOrRemoveNeg() {
     addOrRemoveReverse();
 }
 
-//fa il render ad ogni aggiunta
-function renderWall(arr) {
-    wall.innerHTML = '';
-    arr.map((a) => {
-        a = newElement(wall, 'div', 'newBrick', '');
-    })
-}
-
-
-//Click dei buttons
-increaseBtn.addEventListener('click', () => {
-    counterNumber++;
-    counter.innerText = counterNumber;
-    addOrRemovePos();
-    changeBrickColor();
-})
-
-decreaseBtn.addEventListener('click', () => {
-    counterNumber--;
-    counter.innerText = counterNumber;
-    addOrRemoveNeg();
-    changeBrickColor();
-})
-
-
-
-//aggiunge o rimuove classe reverse da wall
+//aggiunge o rimuove .reverse da wall(css)
 function addOrRemoveReverse() {
     if (counterNumber >= 0) {
         wall.classList.remove('reverse');
@@ -84,6 +81,7 @@ function addOrRemoveReverse() {
     }
 }
 
+//aggiunge o rimuove .hole e .brick (css)
 function changeBrickColor() {
     let bricks = document.querySelectorAll('.newBrick');
     bricks.forEach((brick) => {
@@ -96,11 +94,6 @@ function changeBrickColor() {
         }
     });
 }
-
-
-
-
-
 
 //funzione creazione nuovi elementi
 function newElement(position, tag, newClass, value) {

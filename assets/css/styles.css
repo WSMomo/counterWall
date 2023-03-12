@@ -33,6 +33,10 @@ header a {
     border-radius: 10%;
 }
 
+.icons:hover{
+    scale: 1.1;
+}
+
 main {
     height: 93%;
     display: flex;
