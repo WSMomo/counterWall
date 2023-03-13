@@ -1,3 +1,8 @@
+/* disabilita dark mode forzato da altri browser */
+:root {
+    color-scheme: light only;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
