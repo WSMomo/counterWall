@@ -34,21 +34,13 @@ buttonsHover();
 //fa il render ad ogni aggiunta
 function renderWall(arr) {
     wall.innerHTML = '';
-    arr.map((a) => {
-        a = newElement(wall, 'div', 'newBrick', '');
+    arr.map(() => {
+        newElement(wall, 'div', 'newBrick', '');
     })
 }
 
 
-//controllo posizione cursore overflow
-function checkOverflow() {
-    const bricks = document.querySelectorAll('.newBrick');
-    if (counterNumber > 100) {
-        wall.scrollTop = wall.scrollHeight - wall.clientHeight;
-    } else if (counterNumber < -100) {
-        wall.scrollBy(0, -bricks[0].offsetHeight);
-    }
-}
+
 
 //Click dei buttons
 increaseBtn.addEventListener('click', () => {
@@ -83,8 +75,17 @@ rainbowBtn.addEventListener('click', () => {
     changeBrickColor();
 })
 
+//controllo posizione cursore overflow e lo posiziona all'ultimo elemento aggiunto
+function checkOverflow() {
+    const bricks = document.querySelectorAll('.newBrick');
+    if (counterNumber > 100) {
+        wall.scrollTop = wall.scrollHeight - wall.clientHeight;
+    } else if (counterNumber < -100) {
+        wall.scrollBy(0, -bricks[0].offsetHeight);
+    }
+}
 
-//funzione per aggiungere l'hover e toglierla dopo il click (per evitare hover permanente su mobile)
+//funzione per aggiungere l'hover e toglierla dopo il click (per evitare hover permanente su mobile con :hover css)
 function buttonsHover() {
     if ('ontouchstart' in document.documentElement) {
         buttons.forEach((button) => {
@@ -189,7 +190,7 @@ function randomRainbow() {
 //funzione creazione nuovi elementi
 function newElement(position, tag, newClass, value) {
     let elem = document.createElement(tag);
-    //controllo che posizione sia valido e sia un elemento
+    //controllo che posizione sia valida e sia un elemento
     if (!position || !(position instanceof Element)) {
         position = document.body;
     }
@@ -197,6 +198,7 @@ function newElement(position, tag, newClass, value) {
     if (newClass) {
         elem.setAttribute('class', newClass)
     }
+    //se c'è un valore lo aggiungo
     if (value) {
         let text = document.createTextNode(value);
         elem.appendChild(text);
