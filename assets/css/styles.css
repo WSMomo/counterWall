@@ -55,7 +55,7 @@ main {
 /* muro */
 
 .wall,
-.buttons-container {
+.buttons-container{
     height: 40%;
     aspect-ratio: 1/1;
 }
