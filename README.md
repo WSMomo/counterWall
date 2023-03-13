@@ -14,7 +14,9 @@ This project  is a simple counter that adds and substracts numbers and also rend
 
 ## Usage
 
-When you open the app, the counter is at zero and the wall is without bricks. By increasing or decreasing the counter value with the corresponding buttons (+/-), bricks are added or removed from the wall accordingly. They become white and are created from the top left if the value is positive, or black and from the bottom right if the value is negative. If the wall exceeds 100 bricks (positive or negative), the bricks will continue to increase without leaving the wall, but the wall will become scrollable. There is a possibility to randomly color each brick by clicking the "random" button.
+When you open the app, the counter is at zero and the wall is without bricks. By increasing or decreasing the counter value with the corresponding buttons (+/-), bricks are added or removed from the wall accordingly. They become white and are created from the top left if the value is positive, or black and from the bottom right if the value is negative. 
+If the wall exceeds 100 bricks (positive or negative), the bricks will continue to increase without leaving the wall, but the wall will become scrollable. 
+There is a possibility to randomly color each brick by clicking the "random" button.
 
 ## Screenshots
 
