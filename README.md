@@ -20,7 +20,7 @@ When you open the app, the counter is at zero and the wall is without bricks. By
 
 <img src="assets\img\readme\negNumbers.png">
 <img src="assets\img\readme\posNumbers.png">
-<img src="assets\img\readme\rainbow.png>
+<img src="assets\img\readme\rainbow.png">
 
 ## Technologies used
 
