@@ -24,7 +24,8 @@ header {
     align-items: center;
     height: 100%;
 }
-.social a {
+.social a,
+.rainbow {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,10 +34,6 @@ header {
 }
 
 .rainbow{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
     margin-left: 19px;
 }
 
@@ -46,8 +43,14 @@ header {
     border-radius: 10%;
     padding: 0 10px;
     font-size: 1.2em;
+    filter: brightness(0.75);
     cursor: pointer;
+    transition: filter 0.75s;
 }
+
+    #rainbow-btn:hover{
+    filter: brightness(1);
+}   
 
 /* icone header*/
 .icons {
