@@ -12,6 +12,7 @@ const counter = document.querySelector('.counter');
 //container
 const newWall = newElement(mainTag, 'div', 'wall', '');
 const wall = document.querySelector('.wall');
+const rainbowBtn = document.querySelector('#rainbow-btn');
 const newButtonsContainer = newElement(mainTag, 'div', 'buttons-container', '');
 const buttonsContainer = document.querySelector('.buttons-container');
 
@@ -40,14 +41,14 @@ function renderWall(arr) {
 
 
 //controllo posizione cursore overflow
- function checkOverflow() {
+function checkOverflow() {
     const bricks = document.querySelectorAll('.newBrick');
-     if (counterNumber > 100) {
-         wall.scrollTop = wall.scrollHeight - wall.clientHeight;
-     } else if (counterNumber < -100) {
-         wall.scrollBy(0, -bricks[0].offsetHeight);
-     }
- }
+    if (counterNumber > 100) {
+        wall.scrollTop = wall.scrollHeight - wall.clientHeight;
+    } else if (counterNumber < -100) {
+        wall.scrollBy(0, -bricks[0].offsetHeight);
+    }
+}
 
 //Click dei buttons
 increaseBtn.addEventListener('click', () => {
@@ -75,6 +76,11 @@ resetBtn.addEventListener('click', () => {
     counterNumber = 0;
     counter.innerText = counterNumber;
     wall.innerHTML = '';
+})
+
+rainbowBtn.addEventListener('click', () => {
+    randomRainbow();
+    changeBrickColor();
 })
 
 
@@ -139,19 +145,46 @@ function addOrRemoveReverse() {
     }
 }
 
-//aggiunge o rimuove .hole e .brick (css)
+
+//gestione colori
 function changeBrickColor() {
-    let bricks = document.querySelectorAll('.newBrick');
+    const bricks = document.querySelectorAll('.newBrick');
+    const activeRainbow = rainbowBtn.classList.contains('active');
     bricks.forEach((brick) => {
-        if (counterNumber >= 0) {
-            brick.classList.add('brick');
-            brick.classList.remove('hole');
-        } else {
-            brick.classList.remove('brick');
-            brick.classList.add('hole');
+        if(activeRainbow){
+            const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+            brick.style.backgroundColor = '#' + randomColor;
+            if(counterNumber > 0){
+                brick.style.border = '2px solid black';
+            } else{
+                brick.style.border = '2px solid white';
+            }
+        } else{
+            if (counterNumber > 0) {
+                brick.style.backgroundColor = 'white';
+                brick.style.border = '2px solid black';
+            } else {
+                brick.style.backgroundColor = 'black';
+                brick.style.border = '2px solid white';
+            }
         }
     });
 }
+
+
+//rainbow
+function randomRainbow() {
+    if (rainbowBtn.classList.contains('active')) {
+        rainbowBtn.classList.remove('active');
+        rainbowBtn.style.backgroundColor = 'white';
+        rainbowBtn.style.color = 'black';
+    } else {
+        rainbowBtn.classList.add('active');
+        rainbowBtn.style.backgroundColor = '#'+ Math.floor(Math.random() * 16777215).toString(16);
+        rainbowBtn.style.color = '#'+ Math.floor(Math.random() * 16777215).toString(16);
+    }
+}
+
 
 //funzione creazione nuovi elementi
 function newElement(position, tag, newClass, value) {

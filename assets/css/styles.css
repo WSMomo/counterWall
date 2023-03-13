@@ -14,16 +14,40 @@ body {
 header {
     height: 7%;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
 }
 
-header a {
+.social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.social a {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     margin-right: 19px;
+}
+
+.rainbow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-left: 19px;
+}
+
+#rainbow-btn{
+    height: 90%;
+    border: none;
+    border-radius: 10%;
+    padding: 0 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 /* icone header*/
@@ -100,17 +124,6 @@ main {
     width: 10%;
     height: 10%;
     margin: 0;
-}
-
-/* mattoni */
-.brick {
-    background-color: white;
-    border: 2px solid black;
-}
-
-.hole {
-    background-color: black;
-    border: 2px solid white;
 }
 
 /* bottoni */
