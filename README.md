@@ -7,7 +7,7 @@ This project  is a simple counter that adds and substracts numbers and also rend
 
 ## Installation
 
-* 1.Clone the repository using 'git clone https://github.com/username/repo.git';
+* 1.Clone the repository using 'git clone https://github.com/WSMomo/counterWall.git';
 * 2.Open 'index.html' in your browser.
 
 * Or you can try it directly [here](https://counterwall.netlify.app/).
