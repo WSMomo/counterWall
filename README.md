@@ -34,5 +34,5 @@ There is a possibility to randomly color each brick by clicking the "random" but
 
 Created by Marco Momo:
 
-* [Website](wsmomo.github.io/Portfolio-Marco-Momo)
+* [Website](https://wsmomo.github.io/Portfolio-Marco-Momo/)
 * Github: [@wsmomo](https://github.com/wsmomo)
